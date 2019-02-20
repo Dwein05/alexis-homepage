@@ -1,8 +1,21 @@
 header {
 	position:relative;
+	padding:24px 0 10px;
 
 	.menu {
 		text-align: right;
+	}
+
+	.logo_with_nav {
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+	}
+
+	.logo {
+		width:100%;
+		max-width:97px;
+		margin-left:26px;
 	}
 
 	.menu__icon {
@@ -12,10 +25,14 @@ header {
 		position: relative;
 		cursor: pointer;
 
+		@media screen and (min-width: 768px) {
+			display:none;
+		}
+
 		span {
 			display: block;
 			position: absolute;
-			height: 9px;
+			height: 6px;
 			width: 100%;
 			background: #000;
 			border-radius: 9px;
@@ -29,7 +46,8 @@ header {
 			top: 0px;
 		}
 
-		span:nth-child(2), .menu__icon span:nth-child(3) {
+		span:nth-child(2), 
+		span:nth-child(3) {
 			top: 13px;
 		}
 
@@ -40,17 +58,29 @@ header {
 
 	.menu__links-item {
 		display: inline-block;
-		color: #333333;
-		font-family: Arial;
-		font-size: 14px;
-		line-height: 30px;
-		padding: 0 10px;
-		text-transform: uppercase;
-		text-decoration: none;
+		color: #272727;
+		font-weight:500;
+		font-size: 1em;
+		padding: 0 9px;
 		cursor: pointer;
+
+		a {
+			color: #272727;
+			font-weight:500;
+			font-size: 1em;
+
+			@media screen and (max-width: 768px) {
+				font-size:2em;
+				color:#fff;
+			}
+		}
 	}
 
-	.menu.menu_state_open {
+	.nav_content {
+		padding-bottom:10px;
+	}
+
+	.show {
 		.menu__icon {
 			span:nth-child(1) {
 				top: 18px;
@@ -69,9 +99,8 @@ header {
 			}
 		}
 
-		.menu__links {
+		.nav {
 			display: block;
-
 		}
 	}
 
@@ -81,25 +110,41 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+	.nav{
+		display:none;
+	}
+
 	.menu__links {
 		position: fixed;
-		display: none;
+		height:100vh;
 		top: 0;
 		right: 0;
 		left: 0;
-		margin-top: 52px;
-		background-color: rgba(0, 0, 0, 0.8);
+		margin-top: 70px;
+		background-color: rgba(0, 0, 0, 1);
 		z-index: 1000;
 		overflow: auto;
+		padding:20% 15px 20%;
+
+		display:flex;
+		flex-direction: column;
 	}
 
 	.menu__links-item {
 		display: block;
 		padding: 10px 0;
 		text-align: center;
-		color: #ffffff;
 	}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.logo {
+		margin:0 30px 0 0;
+	}
+
+	.menu__links {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:center;
+	}
 }
