@@ -1,8 +1,20 @@
-body{
-    font: 1em sans-serif;
-} 
-a {
-    background-color: #fff;
-    font-size: 54px;
+* {
+	margin:0;
+	padding:0;
 }
 
+body{
+	max-width: 1170px;
+	width:100%;
+	margin:0 auto;
+	padding:0 15px 0;
+	font: 1em sans-serif;
+}
+
+li{
+	list-style:none;
+}
+
+a{
+	text-decoration:none;
+}
