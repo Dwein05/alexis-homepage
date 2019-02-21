@@ -195,3 +195,53 @@ img {
 .btn:hover {
 	background:#fa816d;
 }
+
+// start section about_us
+
+.about_us {
+	padding:148px 10px 10px;
+
+	.image_with_text_wrap {
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+
+		.image_wrap {
+			margin-left:26px;
+			min-width:535px;
+			min-height:680px;
+			border:10px solid #ccc;
+			background-image:
+				linear-gradient(to top, rgba(217,172,165,0.5), rgba(204,204,204,0.3)),
+				url(https://i.postimg.cc/TYRJnpnb/image-01.png);
+		}
+
+		.title_with_text {
+			position:relative;
+			width:100%;
+			max-width:652px;
+			height:557px;
+			padding:10px 15px 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+			.numeral {
+				position:absolute;
+				top:-105px;
+				left:-11px;
+				bottom:0;
+			}
+
+			h2,
+			p {
+				position:relative;
+				z-index:200;
+			}
+		}
+	}
+}
+
+.numeral {
+	font-size:278px;
+	font-weight:700;
+	color:#e0e0e0;
+}
