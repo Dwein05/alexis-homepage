@@ -13,7 +13,8 @@ li{
 
 a,
 p,
-span {
+span,
+button {
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -21,6 +22,22 @@ h1,
 h2,
 h3 {
 	font-family: 'Libre Baskerville', serif;
+}
+
+h1 {
+	font-size:2em;
+	line-height:1.4;
+	padding:0 0 10%;
+	color:#fff;
+
+	@media screen and (min-width: 768px) {
+		font-size:3em;
+	}
+
+	@media screen and (min-width: 1024px) {
+		font-size:4.25em;
+		padding-bottom:44px;
+	}
 }
 
 a{
@@ -40,4 +57,141 @@ img {
 	max-width: 1175px;
 	margin:0 auto;
 	padding:0 15px 0;
+}
+
+.banner {
+	background:#3f4049 url(https://i.postimg.cc/C172J9m4/bg-01.png) no-repeat center top;
+	background-size:cover;
+
+	text-align:center;
+}
+
+.banner_title {
+	height:100vh;
+	width:100vw;
+	display: table-cell;
+	vertical-align: middle;
+	margin:0 auto;
+	padding:10px 0 10px;
+
+	@media screen and (min-width: 1024px) {
+		height:755px;
+		padding:7px 0 13px;
+	}
+
+	.icon {
+		width:38px;
+		height:38px;
+		margin:0 auto;
+		margin-bottom:20px;
+		border-radius:50%;
+
+		display:flex;
+		align-items:center;
+		justify-content:center;
+
+		@media screen and (min-width: 1024px) {
+			margin-bottom:30px;
+		}
+	}
+
+	.first-item {
+		color:#38c695;
+
+		a {
+			color:#38c695;
+			transition: color 1s linear;
+		}
+
+		a:hover {
+			color:#71efc4;
+		}
+	}
+
+	.first-icon {
+		border:2px solid #38c695;
+	}
+
+	.second-icon {
+		border:2px solid #b27cf5;
+	}
+
+	.second-item {
+		color:#b27cf5;
+
+		a {
+			color:#b27cf5;
+			transition: color 1s linear;
+		}
+
+		a:hover {
+			color:#cfacfa;
+		}
+	}
+
+	.third-icon {
+		border:2px solid #feb960;
+	}
+
+	.third-item {
+		color:#feb960;
+
+		a {
+			color:#feb960;
+			transition: color 1s linear;
+		}
+
+		a:hover {
+			color:#ffe0b8;
+		}
+	}
+
+	.item {
+		padding-bottom:20px;
+
+		a {
+			font-weight:500;
+			font-size:1em;
+			text-transform:uppercase;
+		}
+
+		@media screen and (min-width: 700px) {
+			font-size:1.3em;
+			padding-bottom:0;
+			margin:0 46px 0;
+		}
+	}
+
+	.fas,
+	.far {
+		font-size:1.3em;
+	}
+
+	.items {
+		@media screen and (min-width: 700px) {
+			display:flex;
+			justify-content:center;
+		}
+	}
+}
+
+.btn {
+	border:none;
+	background:#fc5f45;
+	padding:14px 43px;
+	border-radius:30px;
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:600;
+	transition: background-color 1s linear;
+	margin-bottom:10%;
+	font-size:1.1em;
+
+	@media screen and (min-width: 1024px) {
+		margin-bottom:81px;
+	}
+}
+
+.btn:hover {
+	background:#fa816d;
 }
