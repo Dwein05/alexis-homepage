@@ -1,1 +1,0 @@
-const USER_NAME = 'Jeka'
