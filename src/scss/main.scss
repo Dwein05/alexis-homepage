@@ -1,3 +1,10 @@
+@import 'vendors/include-media';
+@import 'vendors/normalize';
+
+@import 'base/variables';
+@import 'base/mixins';
+
 @import 'layouts/_header.scss';
 @import 'layouts/_common.scss';
 @import 'layouts/_footer.scss';
+
