@@ -1,3 +1,363 @@
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+
+@mixin flex-flow($values: (row nowrap)) {
+  // No Webkit Box fallback.
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+
+@mixin order($int: 0) {
+  -webkit-box-ordinal-group: $int + 1;
+  -webkit-order: $int;
+  -moz-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
+}
+
+@mixin flex-grow($int: 0) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+
+@mixin flex-shrink($int: 1) {
+  -webkit-flex-shrink: $int;
+  -moz-flex-shrink: $int;
+  -ms-flex-negative: $int;
+  flex-shrink: $int;
+}
+
+@mixin flex-basis($value: auto) {
+  -webkit-flex-basis: $value;
+  -moz-flex-basis: $value;
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+
+  $fg-boxflex: $fg;
+
+  @if type-of($fg) == 'list' {
+    $fg-boxflex: nth($fg, 1);
+  }
+
+  -webkit-box-flex: $fg-boxflex;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg-boxflex;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: 1;
+  flex: $fg $fs $fb;
+}
+
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin align-self($value: auto) {
+  // No Webkit Box Fallback.
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+@mixin align-content($value: stretch) {
+  // No Webkit Box Fallback.
+  -webkit-align-content: $value;
+  -moz-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
+}
+
+@mixin prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec {
+      #{$property}: $value;
+    } @else  {
+      @warn 'nrecognized prefix: #{$prefix}';
+    }
+  }
+}
+
+@mixin transform($transform) {
+  @include prefixer(transform, $transform, ms webkit spec);
+}
+
+@mixin user-select($value: none) {
+  @include prefixer(user-select, $value, webkit moz ms spec);
+}
+
+@mixin backface($visibility: hidden) {
+  @include prefixer(backface-visibility, $visibility, webkit spec);
+}
+
+@function em($target, $context: $baseFontSize) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $context + 0em;
+}
+
+@function color-control($color) {
+  @if (lightness( $color ) > 40) {
+    @return #000;
+  }
+  @else {
+    @return #fff;
+  }
+}
+
+@function color-control($color) {
+  @if (lightness( $color ) > 40) {
+    @return #1c1d1d;
+  }
+  @else {
+    @return #fff;
+  }
+}
+
+@function adaptive-color($color, $percentage) {
+  @if (lightness( $color ) > 40) {
+    @return darken($color, $percentage);
+  }
+  @else {
+    @return lighten($color, $percentage);
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin centered() {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+@mixin transitionTiming($args...) {
+  -webkit-transition-timing-function: $args;
+  -moz-transition-timing-function: $args;
+  -ms-transition-timing-function: $args;
+  -o-transition-timing-function: $args;
+  transition-timing-function: $args;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin not-last-child($selector) {
+  & #{$selector}:not(:last-child) {
+    @content;
+  }
+}
+@mixin backStretchProxy($args...) {
+  -webkit-background-size: $args;
+  -moz-background-size: $args;
+  -o-background-size: $args;
+  background-size: $args;
+}
+
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+
+@mixin limit-text($max-width) {
+  max-width: $max-width;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin linearGradient($top, $bottom){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
+@mixin zoomPan{
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: pan;
+  animation-name: pan;
+  animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+  -o-animation-direction: alternate;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform-origin: center;
+  -o-transform-origin: center;
+}
+
+@-webkit-keyframes pan {
+  from {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform:scale(1.08);
+    -moz-transform:scale(1.08);
+    -ms-transform:scale(1.08);
+    -o-transform:scale(1.08);
+    transform:scale(1.08);
+  }
+}
+
+@keyframes pan {
+  from {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform:scale(1.08);
+    -moz-transform:scale(1.08);
+    -ms-transform:scale(1.08);
+    -o-transform:scale(1.08);
+    transform:scale(1.08);
+  }
+}
+
 // vertical align el inside parent with fixed height/min-height
 // usage
 // html - .parent>.child
@@ -6,206 +366,33 @@
 //     or @include v-align(250px, bottom, before);
 //
 @mixin v-align($va-height: 100%, $va-direction: middle, $va-pseudo: after) {
-	white-space: nowrap;
-	text-align: center;
+  white-space: nowrap;
+  text-align: center;
 
-	&:#{$va-pseudo} {
-		content: '';
-		display: inline-block;
-		vertical-align: $va-direction;
-		width: 0;
-		min-height: $va-height;
-	}
+  &:#{$va-pseudo} {
+    content: '';
+    display: inline-block;
+    vertical-align: $va-direction;
+    width: 0;
+    min-height: $va-height;
+  }
 
-	> * {
-		white-space: normal;
-		display: inline-block;
-		vertical-align: $va-direction;
-		max-width: 99%;
-	}
+  > * {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: $va-direction;
+    max-width: 99%;
+  }
 }
-
-// vertical align a pair of child el inside parent
-// usage
-// html - .post>.image+.text
-// scss - @include v-align-pair(image, text);
-//     or @include v-align-pair(image, text, bottom);
-//     or @include v-align-pair(image, text, middle, 200px);
-//
-@mixin v-align-pair($child-name1, $child-name2, $valign: middle, $width1: auto, $width2: auto ) {
-	display: table;
-	.#{$child-name1}{
-		display: table-cell;
-		vertical-align: $valign;
-		width: $width1;
-	}
- .#{$child-name2} {
-		display: table-cell;
-		vertical-align: $valign;
-		width: $width2;
-	}
-}
-
 
 // vertical align el
 // usage: @include vertical-align-el;
 //
 @mixin vertical-align-el {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
-/// Mixin helping defining both `width` and `height` simultaneously.
-///
-/// @author Hugo Giraudel
-///
-/// @access public
-///
-/// @param {Length} $width - Element’s `width`
-/// @param {Length} $height ($width) - Element’s `height`
-///
-/// @example scss - Usage
-///   .foo {
-///     @include size(10em);
-///   }
-///
-///   .bar {
-///     @include size(100%, 10em);
-///   }
-///
-/// @example css - CSS output
-///   .foo {
-///     width: 10em;
-///     height: 10em;
-///   }
-///
-///   .bar {
-///     width: 100%;
-///     height: 10em;
-///   }
-///
-@mixin size($width, $height: $width) {
-	width: $width;
-	height: $height;
-}
-
-/// font-smothing
-/// @include font-smoothing(on);
-/// @include font-smoothing(off);
-@mixin font-smoothing($value:on){
-	@if $value == on{
-		-webkit-font-smoothing:antialiased;
-		-moz-osx-font-smoothing:grayscale;
-	}
-	@else{
-		-webkit-font-smoothing:subpixel-antialiased;
-		-moz-osx-font-smoothing:auto;
-	}
-}
-
-
-/// Hides the text in an element, commonly used to show an image. Some elements will need block-level styles applied.
-///
-/// @link http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
-///
-/// @example scss - Usage
-///   .element {
-///     @include hide-text;
-///   }
-///
-/// @example css - CSS Output
-///   .element {
-///     overflow: hidden;
-///     text-indent: 101%;
-///     white-space: nowrap;
-///   }
-///
-@mixin hide-text {
-	overflow: hidden;
-	text-indent: 101%;
-	white-space: nowrap;
-}
-
-
-/// Creates a visual triangle.
-/// Mixin takes ($size, $color, $direction)
-/// The $size argument can take one or two values—width height.
-/// The $color argument can take one or two
-/// values—foreground-color background-color.
-///
-/// @author http://bourbon.io/docs/#triangle
-///
-/// $direction:
-/// up, down, left, right, up-right, up-left, down-right, down-left
-/// @example scss - Usage
-///   @include triangle(12px, gray, down);
-///   @include triangle(12px 6px, gray blue, up-left);
-///
-@mixin triangle($size, $color, $direction) {
-	$width: nth($size, 1);
-	$height: nth($size, length($size));
-	$foreground-color: nth($color, 1);
-	$background-color: if(length($color) == 2, nth($color, 2), transparent);
-	height: 0;
-	width: 0;
-
-	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
-		$width: $width / 2;
-		$height: if(length($size) > 1, $height, $height/2);
-
-		@if $direction == up {
-			border-bottom: $height solid $foreground-color;
-			border-left: $width solid $background-color;
-			border-right: $width solid $background-color;
-		} @else if $direction == right {
-			border-bottom: $width solid $background-color;
-			border-left: $height solid $foreground-color;
-			border-top: $width solid $background-color;
-		} @else if $direction == down {
-			border-left: $width solid $background-color;
-			border-right: $width solid $background-color;
-			border-top: $height solid $foreground-color;
-		} @else if $direction == left {
-			border-bottom: $width solid $background-color;
-			border-right: $height solid $foreground-color;
-			border-top: $width solid $background-color;
-		}
-	} @else if ($direction == up-right) or ($direction == up-left) {
-		border-top: $height solid $foreground-color;
-
-		@if $direction == up-right {
-			border-left:  $width solid $background-color;
-		} @else if $direction == up-left {
-			border-right: $width solid $background-color;
-		}
-	} @else if ($direction == down-right) or ($direction == down-left) {
-		border-bottom: $height solid $foreground-color;
-
-		@if $direction == down-right {
-			border-left:  $width solid $background-color;
-		} @else if $direction == down-left {
-			border-right: $width solid $background-color;
-		}
-	} @else if ($direction == inset-up) {
-		border-color: $background-color $background-color $foreground-color;
-		border-style: solid;
-		border-width: $height $width;
-	} @else if ($direction == inset-down) {
-		border-color: $foreground-color $background-color $background-color;
-		border-style: solid;
-		border-width: $height $width;
-	} @else if ($direction == inset-right) {
-		border-color: $background-color $background-color $background-color $foreground-color;
-		border-style: solid;
-		border-width: $width $height;
-	} @else if ($direction == inset-left) {
-		border-color: $background-color $foreground-color $background-color $background-color;
-		border-style: solid;
-		border-width: $width $height;
-	}
-}
-
 
 /// Animate css properties
 // usage
@@ -216,35 +403,12 @@
 $animation-speed: .3s !default;
 
 @mixin animate($properties, $duration: $animation-speed, $easing: ease-in-out) {
-	$list:();
-	@each $prop in $properties {
-		$str: #{$prop} #{$duration} #{$easing};
-		$list: join($list, #{$str}, comma);
-	}
-	transition: $list;
-}
-
-
-/// Mixin for styling form-placeholders
-/// @example scss - Usage
-///   @include placeholder {
-///    color: #333;
-///   }
-///
-///   input[type='text'],
-///   input[type='tel'],
-///   input[type='email'] {
-///     @include placeholder {
-///      color: red;
-///     }
-///   }
-
-@mixin placeholder {
-	&::-webkit-input-placeholder {@content}
-	&::-moz-placeholder {opacity: 1; @content}
-	&:-moz-placeholder {@content}
-	&:-ms-input-placeholder {@content}
-	&.placeholder {@content}
+  $list:();
+  @each $prop in $properties {
+    $str: #{$prop} #{$duration} #{$easing};
+    $list: join($list, #{$str}, comma);
+  }
+  transition: $list;
 }
 
 /// Font-size px to rem calc
@@ -254,6 +418,6 @@ $animation-speed: .3s !default;
 /// }
 
 @mixin rem-font-size($pxSize) {
-	font-size: $pxSize;
-	font-size: ($pxSize / 10px) + rem;
+  font-size: $pxSize;
+  font-size: ($pxSize / 10px) + rem;
 }

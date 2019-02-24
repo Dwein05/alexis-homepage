@@ -6,7 +6,7 @@
 
 header {
 	position: relative;
-	padding: 10px 0;
+	padding: 25px 0;
 
 	.menu {
 		text-align: right;
@@ -21,7 +21,7 @@ header {
 	.logo {
 		width: 100%;
 		max-width: 97px;
-		margin-left: 25px;
+		margin: 0 0 0 30px;
 	}
 
 	.menu__icon {
@@ -48,7 +48,7 @@ header {
 			top: 0;
 		}
 
-		span:nth-child(2), 
+		span:nth-child(2),
 		span:nth-child(3) {
 			top: 13px;
 		}
@@ -69,7 +69,6 @@ header {
 		cursor: pointer;
 
 		a {
-			font-size:14px;
 			color: $gray;
 			transition: color 1s linear;
 
@@ -152,10 +151,6 @@ header {
 			display:flex;
 			flex-wrap:wrap;
 			justify-content:center;
-		}
-
-		.logo {
-			margin:0 30px 0 0;
 		}
 	}
 }

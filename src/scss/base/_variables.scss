@@ -10,6 +10,7 @@ $gray: #272727;
 $gray-bg: #3f4049;
 $gray-border: #fc5f45;
 $mine-shaft-title: #313131;
+$abbey: #ccc;
 $dove-gray: #616161;
 $alto: #e0e0e0;
 $orange-bg: #fc5f45;
@@ -36,18 +37,18 @@ $base-font-family: $base-font-sans-serif !default;
 $vertical-rhythm: ($line-height-base * 1em);
 
 $base-min-width: 320px;
-$base-max-width: 1170px;
+$base-max-width: 1130px;
 
 // Liks
 $base-link-color: $gray !default;
-$base-link-font-size: 12px !default;
+$base-link-font-size: 14px !default;
 $base-link-line-height: 20px !default;
 
 
 // Buttons
-$btn-color: $white !default;
-$btn-background: $black !default;
-$btn-padding: 0.4em 0.7em !default;
+$button-color: $white !default;
+$btn-background: $orange-bg !default;
+$btn-padding: 14px 43px !default;
 $btn-font-size: inherit !default;
 
 // Forms
@@ -57,10 +58,9 @@ $form-element-focus-border-color: $black !default;
 $placeholder-color: #cfd1d2 !default;
 
 // Headers
-$h1-font-size: 62px !default;
-$h1-line-height: 84px !default;
+$h1-font-size: 60px !default;
 
-$h2-font-size: 52px !default;
+$h2-font-size: 50px !default;
 
 $h3-font-size: 26px !default;
 
@@ -71,8 +71,8 @@ $h6-font-size: 15px !default;
 $p-font-size: 14px !default;
 $p-line-height: 24px !default;
 
-$headings-font-family: inherit !default;
-$headings-color: inherit !default;
+$headings-font-family: 'Libre Baskerville', 'Times', 'Baskerville', 'Georgia', serif;;
+$headings-color: $mine-shaft-title;
 
 
 $animation-speed: 0.3s;
