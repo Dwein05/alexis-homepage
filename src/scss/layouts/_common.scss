@@ -1,5 +1,5 @@
 h1 {
-	padding: 0 0 10%;
+	padding: 0 0 30px;
 	color: $white;
 }
 
@@ -21,16 +21,15 @@ img {
 .banner {
 	background: #3f4049 url(https://i.postimg.cc/C172J9m4/bg-01.png) no-repeat center top;
 	background-size: cover;
-
+	
+	@include v-align(775px)
+	
 	text-align: center;
 }
 
 .banner_title {
-	height: 100vh;
-	width: 100vw;
-	display: table-cell;
-	vertical-align: middle;
 	margin: 0 auto;
+	max-width: 900px;
 	padding:10px 0 10px;
 
 	.icon {
@@ -45,7 +44,7 @@ img {
 		justify-content: center;
 	}
 
-	.first-item {
+	.first-feature {
 		color: $green;
 
 		a {
@@ -66,7 +65,7 @@ img {
 		border: 2px solid $purple;
 	}
 
-	.second-item {
+	.second-feature {
 		color: $purple;
 
 		a {
@@ -83,7 +82,7 @@ img {
 		border: 2px solid $yellow;
 	}
 
-	.third-item {
+	.third-feature {
 		color: $yellow;
 
 		a {
@@ -96,7 +95,7 @@ img {
 		}
 	}
 
-	.item {
+	.feature {
 		padding-bottom: 20px;
 
 		a {
@@ -127,53 +126,132 @@ img {
 // start section about_us
 
 .about_us {
-	padding: 148px 10px 10px;
 
 	.image_with_text_wrap {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include v-align(1000px)
+		position:relative;
+		left: 0;
+		right: 0;
 
 		.image_wrap {
-			margin-left: 26px;
-			min-width: 535px;
-			min-height: 680px;
+			width: 90%;
+			height:320px;
 			border: 10px solid $abbey;
 			background-image:
 				linear-gradient(to top, rgba(217,172,165,0.5), rgba(204,204,204,0.3)),
 				url(https://i.postimg.cc/TYRJnpnb/image-01.png);
 		}
 
-		.title_with_text {
-			position:relative;
-			z-index: 200;
-			width:100%;
-			max-width:652px;
-			margin: 0 0 0 -50px;
-			padding:30px 20px;
+		.border_wrap {
+			position: relative;
 			background: $white;
 			box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
+			&:after {
+				margin-top: 20px;
+				content:'';
+				display: block;
+				height: 3px;
+				background: linear-gradient(to right,
+				#fc5f45 25%,
+				#38c695 25%, #38c695 50%,
+				#b27cf5 50%, #b27cf5 75%,
+				#feb960 75%, #feb960 100%);
+			}
+		}
+
+		.title_with_text {
+			padding: 85px 84px 135px;
+
 			.numeral {
-				position:absolute;
-				top:-105px;
-				left:-11px;
-				bottom:0;
+				position: absolute;
+				top: -105px;
+				left: -11px;
+				bottom: 0;
 			}
 
 			h2,
 			p {
-				position:relative;
-				z-index:200;
+				position: relative;
+				z-index: 200;
 			}
 		}
 	}
 }
 
 .numeral {
+	position:absolute;
 	font-size: 278px;
+	line-height: 207px;
 	font-weight: 700;
 	color: $alto;
+}
+
+.our_focus {
+	background: $alabaster;
+	text-align: center;
+
+	h2 {
+		margin: -150px 0 0 0;
+	}
+}
+
+.icon_service {
+	max-width: 55px;
+}
+
+
+@include media(">=tablet") {
+	h1 {
+		font-size: 60px;
+		padding-bottom: 50px;
+	}
+
+	.features {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.feature {
+		margin-right: 20px;
+	}
+
+	.third-feature {
+		margin:0;
+	}
+
+	.image_with_text_wrap {
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.image_wrap {
+		margin-left: 26px;
+		min-width: 535px;
+		width:100%;
+		min-height: 680px;
+	}
+
+	.title_with_text {
+		padding: 30px 20px;
+	}
+
+	h2 {
+		font-size: 50px;
+	}
+
+	.numeral {
+		font-size: 278px;
+	}
+
+	.border_wrap {
+		margin: 0 0 0 -70px;
+
+		h2 {
+			padding-bottom: 45px;
+		}
+	}
 }
 
 
