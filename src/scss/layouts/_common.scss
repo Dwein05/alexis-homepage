@@ -284,40 +284,115 @@ h2 {
 
 // start portfolio
 
-.portfolio {
-	background: $alabaster;
-	text-align: center;
-	padding-bottom: 30px;
-}
+// .portfolio {
+// 	background: $alabaster;
+// 	text-align: center;
+// 	padding-bottom: 30px;
+// }
+
+// .portfolio_list {
+// 	padding: 0;
+
+// 	li {
+// 		display: inline-block;
+// 	}
+// }
+
+// .portfolio_item {
+// 	max-width: 360px;
+// 	width: 100%;
+// 	padding-bottom: 20px;
+// }
+
+// .portfolio_hover {
+// 	span{
+// 		display:block;
+// 	}
+
+// 	.icon {
+// 		max-width: 61px;
+// 		margin:0 auto;
+// 	}
+
+// 	.project_wrap {
+// 		background: $white-bg;
+// 		padding:10px 15px 10px;
+// 	}
+// }
 
 .portfolio_list {
-	padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
 
-	li {
-		display: inline-block;
-	}
+    > li {
+        flex: 30% 0 0;
+        max-width: 30%;
+    }
 }
 
-.portfolio_item {
-	max-width: 360px;
-	width: 100%;
-	padding-bottom: 20px;
+.item-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    > img {
+        width: 100%;
+    }
+
+    > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: transparent
+    }
+
+    &:hover {
+        .hover-icon {
+           bottom: 50%
+        }
+
+        .portfolio_hover {
+            bottom: 0%
+        }
+    }
+}
+
+.hover-icon {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .portfolio_hover {
-	span{
-		display:block;
-	}
-	
-	.icon {
-		max-width: 61px;
-		margin:0 auto;
-	}
+    transition: 0.3s all 0.3s ease-in-out;
+    color: #000;
+    position: absolute;
+    bottom: -50%;
+    background: #fff;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
 
-	.project_wrap {
-		background: $white-bg;
-		padding:10px 15px 10px;
-	}
+    .project_wrap {
+        padding: 20px 0;
+    }
+
+    .colored {
+        height: 3px;
+        background: linear-gradient(to right,
+         red 25%,
+         green 25%,
+         green 50%,
+         purple 50%,
+         purple 75%,
+         yellow 75%,
+         yellow 100%);
+    }
 }
 
 
