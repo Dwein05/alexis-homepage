@@ -170,10 +170,10 @@ img {
 				display: block;
 				height: 3px;
 				background: linear-gradient(to right,
-				#fc5f45 25%,
-				#38c695 25%, #38c695 50%,
-				#b27cf5 50%, #b27cf5 75%,
-				#feb960 75%, #feb960 100%);
+				$orange-border 25%,
+				$green-border 25%, $green-border 50%,
+				$purple-border 50%, $purple-border 75%,
+				$yellow-border 75%, $yellow-border 100%);
 			}
 		}
 
@@ -295,6 +295,28 @@ h2 {
 
 	li {
 		display: inline-block;
+	}
+}
+
+.portfolio_item {
+	max-width: 360px;
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.portfolio_hover {
+	span{
+		display:block;
+	}
+	
+	.icon {
+		max-width: 61px;
+		margin:0 auto;
+	}
+
+	.project_wrap {
+		background: $white-bg;
+		padding:10px 15px 10px;
 	}
 }
 
