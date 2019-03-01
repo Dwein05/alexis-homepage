@@ -3,6 +3,11 @@
 h1 {
 	padding: 0 0 30px;
 	color: $white;
+
+	@include media(">=desktop") {
+		font-size: 60px;
+		padding-bottom: 42px;
+	}
 }
 
 img {
@@ -20,7 +25,7 @@ img {
 	padding: 0 20px 0;
 }
 
-.banner_section {
+.main_section {
 	background: #3f4049 url(https://i.postimg.cc/C172J9m4/bg-01.png) no-repeat center top;
 	background-size: cover;
 
@@ -35,22 +40,37 @@ img {
 .banner_title {
 	margin: 0 auto;
 	max-width: 900px;
-	padding:12px 0 0;
+	width: 100%;
+	padding:22px 0 10px;
 
 	ul {
 		padding: 0;
 	}
 
 	.icon {
-		width: 38px;
-		height: 38px;
-		margin: 0 auto;
+		display: block;
 		margin-bottom: 20px;
-		border-radius: 50%;
 
+		font-size: 35px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.features {
+		@include media(">=tablet") {
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+
+	.feature {
+		@include media(">=tablet") {
+			margin-right: 20px;
+			a {
+				font-size: 18px;
+			}
+		}
 	}
 
 	.first-feature {
@@ -66,14 +86,6 @@ img {
 		}
 	}
 
-	.first-icon {
-		border: 2px solid $green;
-	}
-
-	.second-icon {
-		border: 2px solid $purple;
-	}
-
 	.second-feature {
 		color: $purple;
 
@@ -87,12 +99,12 @@ img {
 		}
 	}
 
-	.third-icon {
-		border: 2px solid $yellow;
-	}
-
 	.third-feature {
 		color: $yellow;
+
+		@include media(">=tablet") {
+			margin: 0;
+		}
 
 		a {
 			color: $yellow;
@@ -123,6 +135,7 @@ img {
 	text-transform:uppercase;
 	font-weight:600;
 	transition: background-color 1s linear;
+	outline: none;
 
 	&:hover{
 		background: lighten($btn-background, 10%);
@@ -132,6 +145,10 @@ img {
 
 .title_with_btn {
 	padding-bottom: 30px;
+
+	@include media(">=tablet") {
+		padding-bottom: 92px;
+	}
 }
 
 // End Banner
@@ -157,7 +174,7 @@ img {
 		}
 
 		.image_wrap {
-			width: 92%;
+			width: 100%;
 			max-width: 535px;
 			height:320px;
 			border: 10px solid $abbey;
@@ -166,6 +183,13 @@ img {
 				url(https://i.postimg.cc/TYRJnpnb/image-01.png);
 			background-repeat: no-repeat;
 			margin-bottom: 20px;
+
+			@include media(">=tablet") {
+				margin-left: 26px;
+				min-width: 535px;
+				width:100%;
+				min-height: 680px;
+			}
 
 			@include media(">=desktop") {
 				margin-bottom: 0;
@@ -178,8 +202,15 @@ img {
 			box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 			max-width: 630px;
+			width: 100%;
 
 			margin: 0;
+
+			@include media(">=tablet") {
+				h2 {
+					padding-bottom: 45px;
+				}
+			}
 
 			@include media(">=desktop") {
 				margin: 0 0 0 -99px;
@@ -208,27 +239,35 @@ img {
 
 			.numeral {
 				top: 0;
-				align-items: center;
 			}
 
-			h2,
-			p {
+			.text-holder {
 				position: relative;
-				z-index: 200;
+				z-index: 2;
+
+				p {
+					p:first-child {
+						padding-bottom: 20px;
+					}
+				}
 			}
 		}
 	}
 }
 
 .numeral {
-	position:absolute;
+	position: absolute;
 	left: 0;
 	right: 0;
 
 	font-size: 250px;
-	line-height: 207px;
+	line-height: .8;
 	font-weight: 700;
 	color: $alto;
+
+	@include media(">=tablet") {
+		font-size: 220px;
+	}
 }
 
 
@@ -245,8 +284,12 @@ img {
 }
 
 h2 {
-		padding-bottom: 20px;
+	padding-bottom: 20px;
+
+	@include media(">=tablet") {
+		font-size: 50px;
 	}
+}
 
 .icon_service {
 	max-width: 55px;
@@ -257,11 +300,21 @@ h2 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	@include media(">=tablet") {
+		flex-wrap: wrap;
+		flex-direction: row;
+
+		p {
+			font-size: 15px;
+			line-height: 1.7;
+		}
+	}
 }
 
 .title {
 	position: relative;
-	z-index: 200;
+	z-index: 2;
 	padding: 137px 0 76px;
 
 	p {
@@ -273,7 +326,7 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch;
 
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
@@ -281,12 +334,22 @@ h2 {
 	min-height: 200px;
 	background: $white-bg;
 	padding: 20px 30px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+
+	@include media(">=tablet") {
+		min-height: 307px;
+		margin-right: 30px;
+	}
+
+	@include media(">=1200px") {
+		margin-bottom: 0;
+	}
 }
 
 .icon_service {
 	padding-top: 6px;
 	padding-bottom: 22px;
+	margin: 0 auto;
 }
 
 .title_service {
@@ -358,7 +421,7 @@ h2 {
 		border:5px solid $white;
 		@include animate(border)
 		transition: all 0.3s ease-in-out;
-		
+
 		.hover-icon {
 			bottom: 50%
 		}
@@ -373,6 +436,7 @@ h2 {
 
 	.icon {
 		max-width: 61px;
+		width: 100%;
 		margin:0 auto;
 	}
 
@@ -421,91 +485,6 @@ h2 {
 	}
 }
 
-
-@include media(">=tablet") {
-	// start banner
-	/* h1 {
-		font-size: 60px;
-		padding-bottom: 42px;
-	} */
-
-	.features {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.feature {
-		margin-right: 20px;
-
-		a {
-			font-size: 18px;
-		}
-	}
-
-	.third-feature {
-		margin:0;
-	}
-
-	.title_with_btn {
-		padding-bottom: 92px;
-	}
-	// end banner
-
-	// start section about_us
-
-	.image_wrap {
-		margin-left: 26px;
-		min-width: 535px;
-		width:100%;
-		min-height: 680px;
-	}
-
-	h2 {
-		font-size: 50px;
-	}
-
-	.numeral {
-		font-size: 278px;
-	}
-
-	.border_wrap {
-
-		h2 {
-			padding-bottom: 45px;
-		}
-	}
-
-	/* end section about_us */
-
-
-	/*start our_focus */
-	.service {
-		flex-wrap: wrap;
-		flex-direction: row;
-
-		p {
-			font-size: 15px;
-			line-height: 1.7;
-		}
-	}
-
-	.service-wrap {
-		min-height: 307px;
-		margin-right: 30px;
-		margin-bottom: 0;
-	}
-
-	.fourth_service-wrap {
-		margin: 0;
-	}
-}
-
-@include media(">=desktop") {
-	h1 {
-		font-size: 60px;
-		padding-bottom: 42px;
-	}
-}
 
 
 

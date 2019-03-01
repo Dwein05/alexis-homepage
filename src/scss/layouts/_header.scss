@@ -4,7 +4,7 @@
 	height: 100vh;
 }
 
-header {
+.header {
 	position: relative;
 	padding: 20px 0;
 
@@ -18,18 +18,16 @@ header {
 		text-align: right;
 	}
 
-
-	.logo {
-		width: 100%;
-		max-width: 97px;
-	}
-
-	.menu__icon {
+	.menu_icon {
 		display: block;
 		width: 45px;
 		height: 35px;
 		position: relative;
 		cursor: pointer;
+
+		@include media(">=desktop") {
+			display: none;
+		}
 
 		span {
 			display: block;
@@ -59,23 +57,51 @@ header {
 	}
 
 	.nav {
-		display:none;
+		transform: scaleX(0);
+		transition: transform .3s ease;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		margin-top: 70px;
+
+		.menu_links {
+			background-color: rgba(0, 0, 0, 1);
+			z-index: 1000;
+			overflow: auto;
+			padding:100px 15px;
+			height: 100vh;
+
+			display:flex;
+			flex-direction: column;
+
+			@include media(">=desktop") {
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:center;
+				margin: 0 -10px;
+			}
+		}
 	}
 
-	.menu__links-item {
+	.menu_links-item {
 		display: inline-block;
 		font-weight: 500;
 		padding: 0 11px;
-		text-align:center;
+		text-align: center;
 
 		padding-bottom: 20px;
+
+		@include media(">=desktop") {
+			padding-bottom: 0;
+		}
 
 		a {
 			color:$white;
 			font-size: 20px;
 			cursor: pointer;
 
-			@include media(">=tablet") {
+			@include media(">=desktop") {
 				color: $gray;
 				font-size: $base-link-font-size;
 			}
@@ -87,12 +113,8 @@ header {
 		}
 	}
 
-	.nav_content {
-		padding-bottom: 10px;
-	}
-
 	.show {
-		.menu__icon {
+		.menu_icon {
 			span:nth-child(1) {
 				top: 18px;
 				width: 0%;
@@ -115,55 +137,19 @@ header {
 		}
 
 		.nav {
-			display: block;
+			transform: scaleX(1);
 		}
-
-		.menu__links {
-			
-			transition: transform .3s ease;
-			position: fixed;
-			height: 100vh;
-			top: 0;
-			right: 0;
-			left: 0;
-			margin-top: 70px;
-			background-color: rgba(0, 0, 0, 1);
-			z-index: 1000;
-			overflow: auto;
-			padding:20% 15px 20%;
-
-			display:flex;
-			flex-direction: column;
-		}
-	}
-
-	@include media(">=tablet") {
-		.logo {
-			margin:0 0 0 23px;
-		}
-
-	@include media(">=desktop") {
-			.menu__icon {
-				display: none;
-			}
-
-			.nav {
-				display: block;
-			}
-
-			.menu__links {
-				display:flex;
-				flex-wrap:wrap;
-				justify-content:center;
-				margin: 0 -10px;
-			}
-
-			.menu__links-item {
-				padding-bottom: 0;
-			}
-		}
-
 	}
 }
+
+.logo {
+	width: 100%;
+	max-width: 97px;
+
+	@include media(">=tablet") {
+		margin-left: 23px;
+	}
+}
+
 
 
