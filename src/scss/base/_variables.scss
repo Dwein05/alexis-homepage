@@ -55,7 +55,7 @@ $base-link-line-height: 20px !default;
 // Buttons
 $button-color: $white !default;
 $btn-background: $orange-bg !default;
-$btn-padding: 14px 43px !default;
+$btn-padding: 16px 43px !default;
 $btn-font-size: inherit !default;
 
 // Forms
@@ -65,9 +65,10 @@ $form-element-focus-border-color: $black !default;
 $placeholder-color: #cfd1d2 !default;
 
 // Headers
-$h1-font-size: 50px !default;
+$h1-font-size: 40px !default;
+$h1-line-height: 1.4 !default;
 
-$h2-font-size: 40px !default;
+$h2-font-size: 30px !default;
 
 $h3-font-size: 26px !default;
 

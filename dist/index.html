@@ -7,74 +7,77 @@
     <title>Alexis-homepage</title>
     <link rel="stylesheet" href="./style/main.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="./js/main.js" defer></script>
 </head>
 <body>
 	<header>
 		<div class="container">
-			<div class="logo_with_nav">
-				<div class="logo">
-					<a href="http://link">
-						<img src="https://i.postimg.cc/YSmRxrfH/logo-Alexis.png" alt="Alexis">
-					</a>
+			<div class="logo">
+				<a href="http://link">
+					<img src="https://i.postimg.cc/YSmRxrfH/logo-Alexis.png" alt="Alexis">
+				</a>
+			</div>
+			<div class="menu">
+				<div id="menu__icon" class="menu__icon">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
 				</div>
-				<div class="menu">
-					<div id="menu__icon" class="menu__icon">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-					<div class="nav_content">
-						<nav class="nav">
-							<ul id="menu__links" class="menu__links">
-								<li class="menu__links-item"><a href="">About Us</a></li>
-								<li class="menu__links-item"><a href="">Our Focus</a></li>
-								<li class="menu__links-item"><a href="">Portfolio</a></li>
-								<li class="menu__links-item"><a href="">Our Team</a></li>
-								<li class="menu__links-item"><a href="">Work Steps</a></li>
-								<li class="menu__links-item"><a href="">Pricing</a></li>
-								<li class="menu__links-item"><a href="">Testimonials</a></li>
-								<li class="menu__links-item"><a href="">Blog</a></li>
-								<li class="menu__links-item"><a href="">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+				<nav class="nav">
+					<ul id="menu__links" class="menu__links">
+						<li class="menu__links-item"><a href="">About Us</a></li>
+						<li class="menu__links-item"><a href="">Our Focus</a></li>
+						<li class="menu__links-item"><a href="">Portfolio</a></li>
+						<li class="menu__links-item"><a href="">Our Team</a></li>
+						<li class="menu__links-item"><a href="">Work Steps</a></li>
+						<li class="menu__links-item"><a href="">Pricing</a></li>
+						<li class="menu__links-item"><a href="">Testimonials</a></li>
+						<li class="menu__links-item"><a href="">Blog</a></li>
+						<li class="menu__links-item"><a href="">Contact</a></li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</header>
 <main>
-	<section class="banner">
+	<section class="banner_section">
 		<div class="container">
 			<div class="banner_title">
-				<h1>We design things with love and&nbsp;passion.</h1>
-				<button class="btn">Our Works</button>
-				<div class="features">
-					<div class="feature first-feature">
-						<div class="icon first-icon">
-							<i class="fas fa-dollar-sign"></i>
-						</div>
-						<a href="#">Fixed price projects</a>
-					</div>
-					<div class="feature second-feature">
-						<div class="icon second-icon">
-							<i class="far fa-clock"></i>
-						</div>
-						<a href="#">Receive on time</a>
-					</div>
-					<div class="feature third-feature">
-						<div class="icon third-icon">
-							<i class="fas fa-check"></i>
-						</div>
-						<a href="#">Satisfaction guranteed</a>
-					</div>
+				<div class="title_with_btn">
+					<h1>We design things with love and passion.</h1>
+					<button class="btn">Our Works</button>
 				</div>
+				<ul class="features">
+					<li class="feature first-feature">
+						<a href="#">
+							<span class="icon first-icon">
+								<i class="icon-coin-dollar"></i>
+							</span>
+							Fixed price projects
+						</a>
+					</li>
+					<li class="feature second-feature">
+						<a href="#">
+							<span class="icon second-icon">
+								<i class="far fa-clock"></i>
+							</span>
+							Receive on time
+						</a>
+					</li>
+					<li class="feature third-feature">
+						<a href="#">
+							<span class="icon third-icon">
+								<i class="fas fa-check"></i>
+							</span>
+							Satisfaction guranteed
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>
-	<section class="about_us">
+	<section class="about_us_section">
 		<div class="container">
 			<div class="image_with_text_wrap">
 				<div class="image_wrap"></div>
@@ -91,7 +94,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="our_focus">
+	<section class="our_focus_section">
 		<div class="container">
 			<div class="text_wrap">
 				<span class="numeral">02</span>
@@ -139,7 +142,7 @@
 			<a href="">Click to play the video</a>
 		</div>
 	</sectoin> -->
-	<section class="portfolio">
+	<section class="portfolio_section">
 		<div class="container">
 			<div class="text_wrap">
 				<span class="numeral">03</span>
@@ -150,47 +153,139 @@
 			</div>
 			<ul class="portfolio_list">
 				<li class="portfolio_item">
-				                    <div class="item-wrapper">
-
-				                        <img src="https://i.postimg.cc/L4ZTHn3Q/portfolio-image-01.png" alt="">
-
-				                        <div class="hover-icon">
-				                            <img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
-				                        </div>
-
-				                        <div class="portfolio_hover">
-				                            <div class="colored"></div>
-				                            <div class="project_wrap">
-				                                Project One
-				                            </div>
-				                        </div>
-
-				                        <a href="#"></a>
-				                    </div>
-								</li>
-				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/tJyYQS5j/portfolio-image-02.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/L4ZTHn3Q/portfolio-image-01.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/t4LRGvqM/portfolio-image-03.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/tJyYQS5j/portfolio-image-02.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/NfFQ9vLn/portfolio-image-04.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/t4LRGvqM/portfolio-image-03.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/Y2Vs35bZ/portfolio-image-05.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/NfFQ9vLn/portfolio-image-04.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/BvMh1kjh/portfolio-image-06.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/Y2Vs35bZ/portfolio-image-05.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/PJ8K9q2c/portfolio-image-07.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/BvMh1kjh/portfolio-image-06.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/y8PqvfJR/portfolio-image-08.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/PJ8K9q2c/portfolio-image-07.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 				<li class="portfolio_item">
-					<a href="#"><img src="https://i.postimg.cc/vB4p8b07/portfolio-image-09.png" alt=""></a>
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/y8PqvfJR/portfolio-image-08.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
+				</li>
+				<li class="portfolio_item">
+					<div class="item-wrapper">
+						<img src="https://i.postimg.cc/vB4p8b07/portfolio-image-09.png" alt="">
+						<div class="hover-icon">
+							<img src="https://i.postimg.cc/JnmmzYN6/icon.png" alt="">
+						</div>
+						<div class="portfolio_hover">
+							<div class="colored"></div>
+							<div class="project_wrap">
+								Project One
+							</div>
+							<a href="#"></a>
+						</div>
+					</div>
 				</li>
 			</ul>
 		</div>

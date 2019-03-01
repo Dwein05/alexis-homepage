@@ -8,15 +8,16 @@ header {
 	position: relative;
 	padding: 20px 0;
 
-	.menu {
-		text-align: right;
-	}
-
-	.logo_with_nav {
+	.container{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
+
+	.menu {
+		text-align: right;
+	}
+
 
 	.logo {
 		width: 100%;
@@ -40,7 +41,7 @@ header {
 			opacity: 1;
 			left: 0;
 			transform: rotate(0deg);
-			transition: .25s ease-in-out;
+			transition: .25s;
 		}
 
 		span:nth-child(1) {
@@ -64,15 +65,19 @@ header {
 	.menu__links-item {
 		display: inline-block;
 		font-weight: 500;
-		padding: 0 10px;
-		cursor: pointer;
+		padding: 0 11px;
+		text-align:center;
+
+		padding-bottom: 20px;
 
 		a {
-			color: $gray;
-			transition: color 1s linear;
+			color:$white;
+			font-size: 20px;
+			cursor: pointer;
 
-			@media screen and (max-width: 768px) {
-				color:$white;
+			@include media(">=tablet") {
+				color: $gray;
+				font-size: $base-link-font-size;
 			}
 
 			&:hover{
@@ -87,7 +92,6 @@ header {
 	}
 
 	.show {
-
 		.menu__icon {
 			span:nth-child(1) {
 				top: 18px;
@@ -115,6 +119,8 @@ header {
 		}
 
 		.menu__links {
+			
+			transition: transform .3s ease;
 			position: fixed;
 			height: 100vh;
 			top: 0;
@@ -129,33 +135,34 @@ header {
 			display:flex;
 			flex-direction: column;
 		}
-
-		.menu__links-item {
-			display: block;
-			padding: 10px 0;
-			margin: 0 -10px;
-			text-align: center;
-		}
 	}
 
 	@include media(">=tablet") {
 		.logo {
-			margin:0 0 0 30px;
+			margin:0 0 0 23px;
 		}
 
-		.menu__icon {
-			display: none;
+	@include media(">=desktop") {
+			.menu__icon {
+				display: none;
+			}
+
+			.nav {
+				display: block;
+			}
+
+			.menu__links {
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:center;
+				margin: 0 -10px;
+			}
+
+			.menu__links-item {
+				padding-bottom: 0;
+			}
 		}
 
-		.nav {
-			display: block;
-		}
-
-		.menu__links {
-			display:flex;
-			flex-wrap:wrap;
-			justify-content:center;
-		}
 	}
 }
 
